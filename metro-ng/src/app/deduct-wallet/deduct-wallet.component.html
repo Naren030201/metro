@@ -1,0 +1,33 @@
+<div class="container">
+    
+    <h2>Money Transfer Wallet to Bank</h2>
+    <form #amountForm="ngForm">
+        <div class="row">
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h3 class="card-title">Wallet Balance</h3>
+                  <div class="display-1">&#x20b9;{{wallet.balance}}</div>
+                </div>
+              </div>
+            </div>
+        </div> 
+        <label for="">Enter the Amount: </label>
+        <input type="number"  class="form-control" [(ngModel)] = "amount" #amountRef= "ngModel" name="amount"  placeholder=" Enter Amount" required>
+         <!-- <div>amountRef.invalid - {{amountRef.invalid}}</div>
+        <div>amountRef.touched - {{amountRef.touched}}</div>
+        <div>amountRef.dirty - {{amountRef.dirty}}</div> -->
+        <div>amountRef.errors.required - {{amountRef.errors?.['required']}}</div>
+        
+        <div class="error" *ngIf="amountRef.invalid && (amountRef.dirty || amountRef.touched)">
+            <div *ngIf="amountRef.errors?.['required']">Amount is required.</div>
+            </div>
+         <div class="error" *ngIf="amountRef.value > balance">
+            Insufficient Funds.
+        </div>
+        <!-- <div class="text-danger">Insufficient Fund</div>             -->
+        <div id="liveAlertPlaceholder"><br>
+            <button type="button" [disabled]="!amountForm.valid" value="Save" class="btn btn-primary" id="liveAlertBtn">Transfer Amount </button>
+        </div>
+    </form>
+</div>
