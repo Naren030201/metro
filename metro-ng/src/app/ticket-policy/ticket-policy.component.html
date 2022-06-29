@@ -1,0 +1,59 @@
+<div class="container mt-5">
+    <div class="table-wrapper">
+        <div class="col-sm-8 row">
+            <h2>Ticket Policy</h2>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Distance Range (km)</th>
+                    <th>Price Details (&#8377;)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let policy of ticketPolicies">
+                    <td>{{policy.start}} - {{policy.end}}</td>
+                    <td>{{policy.price}}<span class="material-symbols-outlined">
+                      currency_rupee
+                      </span></td>
+                    <td>
+                        <a routerLink="/modify-ticket-policy/" id="policy.id" class="edit" title="Edit" data-toggle="tooltip">
+                            <span class="material-symbols-outlined">edit</span></a>
+                        <a href="action.php" id="policy.id" onclick="return confirm('Are you sure to delete?')" class="delete" title="Delete" data-toggle="tooltip"><span class="material-symbols-outlined mx-2">delete</span></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <a routerLink="/add-ticket-policy"><button class="btn btn-primary">Add New</button></a>
+    </div>
+    <!-- <div>
+      <p>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#addDistance"
+          aria-expanded="false" aria-controls="addDistance">Add New</button>
+      </p>
+      <div class="col">
+        <div class="collapse multi-collapse" id="addDistance">
+          <div class="card card-body">
+            <div class="row">
+              <div class="col">
+                <label for="startingdistance" class="form-label">Starting Distance Range</label>
+                <input type="number" class="form-control" placeholder="" aria-label="">
+              </div>
+              <div class="col">
+                <label for="endingdistance" class="form-label">Ending Distance Range</label>
+                <input type="number" class="form-control" placeholder="" aria-label="">
+              </div>
+              <div class="col">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" class="form-control" placeholder="" aria-label="">
+              </div>
+              <button class="btn btn-primary col-2">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+</div>

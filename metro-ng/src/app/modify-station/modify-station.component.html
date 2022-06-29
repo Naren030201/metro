@@ -1,0 +1,20 @@
+<div class="container">
+    <form #stationForm="ngForm" (ngSubmit)="onSubmit()">
+       
+        <h2>Modify Station</h2>
+        <label for="Station">Station</label>
+        <input type="text" class="form-control me-2" [(ngModel)]="getStation.name" name="name" id="station.id"
+            #stationField="ngModel" minlength="2" maxlength="30" required>
+        <div class="error" *ngIf="stationField.invalid&&(stationField.dirty||stationField.touched)">
+            <div *ngIf="stationField.errors?.['required']">Station name is required.</div>
+            <div *ngIf="stationField.errors?.['minlength']">Station name should be atleast 2 characters.</div>
+            <div *ngIf="stationField.errors?.['maxlength']">Station name cannot exceed 30 characters.</div>
+
+        </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary mb-3" [disabled]="!stationForm.valid"
+                value="Save">Save</button>
+                
+        </div> 
+    </form>
+</div>

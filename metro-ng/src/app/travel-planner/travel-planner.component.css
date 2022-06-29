@@ -1,0 +1,17 @@
+.list-group-item {
+    cursor: pointer;
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+    font-weight: bold;
+}
+
+.plan-margin {
+    margin-top: 3rem;
+}
+
+.forward-arrow {
+    color: red;
+}

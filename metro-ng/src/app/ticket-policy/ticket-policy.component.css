@@ -1,0 +1,10 @@
+table.table td a.delete {
+    color: #E34724;
+}
+a{
+    cursor: pointer;
+}
+
+ /* .table {
+    border: 1px solid black;
+}  */
