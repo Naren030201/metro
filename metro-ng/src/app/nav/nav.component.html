@@ -4,27 +4,81 @@
             <img src="assets/images/pngegg.png" alt="" width="35" height="35" class="d-inline-block align-text-top" />
         </a>
         <h4 class="text-primary me-1">Metro</h4>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
         <div class="collapse navbar-collapse mb-0" id="navbarSupportedContent">
             <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="">Admin</a>
+                <!-- <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="">Admin</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="new.html">Home</a>
+        </li> -->
+                <li class="nav-item h4 me-4" *ngIf="userService.user!=undefined && userService.user.role=='user'">
+                    <a class="nav-link" routerLink="planner" routerLinkActive="active">Plan</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="new.html">Home</a>
+                <li class="nav-item h4 me-4" *ngIf="userService.user!=undefined && userService.user.role=='admin'">
+                    <a class="nav-link" routerLink="line" routerLinkActive="active">Line</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="login.html">Login</a>
+                <li class="nav-item h4 me-4" *ngIf="userService.user!=undefined && userService.user.role=='admin'">
+                    <a class="nav-link" routerLink="stations" routerLinkActive="active">Station</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item h4 me-4" *ngIf="userService.user!=undefined && userService.user.role=='admin'">
+                    <a class="nav-link" routerLink="ticket" routerLinkActive="active">Ticket Policy</a>
+                </li>
+                <li class="nav-item h4 me-4" *ngIf="userService.user!=undefined && userService.user.role=='user'">
+                    <a class="nav-link" routerLinkActive="active">Wallet</a>
+                </li>
+                <li class="nav-item h4 me-4" *ngIf="userService.user!=undefined && userService.user.role=='user'">
+                    <a class="nav-link" routerLink="" routerLinkActive="active">Travel Card</a>
+                </li>
+                <li class="nav-item h4 me-4" *ngIf="userService.user!=undefined && userService.user.role=='user'">
+                    <a class="nav-link" routerLink="tickets" routerLinkActive="active">Ticket</a>
+                </li>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="userService.user!=undefined && userService.user.role=='admin'">
+                    <ul class="navbar-nav  ms-auto  me-5 mb-2 mb-lg-0">
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle active h4 me-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{userService.user.name}}
+              </a>
+                            <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Modify Name</a></li>
+                                <li><a class="dropdown-item" routerLink="update">Change Password</a></li>
+                                <li><a class="dropdown-item" href="/login">LOGOUT</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="userService.user!=undefined && userService.user.role=='user'">
+                    <ul class="navbar-nav  ms-auto  me-5 mb-2 mb-lg-0">
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle active h4 me-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{userService.user.name}}
+                </a>
+                            <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Modify Name</a></li>
+                                <li><a class="dropdown-item" routerLink="update">Change Password</a></li>
+                                <li><a class="dropdown-item" href="/login">LOGOUT</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+
+
+
+                <li class="nav-item h5 me-3" *ngIf="userService.user==undefined">
+                    <a class="nav-link" routerLink="login" routerLinkActive="active">Login</a>
+                </li>
+                <li class="nav-item h5 me-3" *ngIf="userService.user==undefined">
                     <a class="nav-link" routerLink="signup" routerLinkActive="active">Signup</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="deduct-wallet" routerLinkActive="active">deduct-wallet</a>
-                </li> 
+                </li>
             </ul>
         </div>
     </div>

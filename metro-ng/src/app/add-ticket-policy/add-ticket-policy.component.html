@@ -1,0 +1,45 @@
+<div class="p-5 ">
+  <h2 class="mb-4">Add Ticket Policy</h2>
+
+  <form #addForm="ngForm">
+
+    <div class="form-outline mb-4">
+      <label class="form-label" for="formaddpolicy">Starting Distance</label>
+      <input (input)="checkDistance(addForm)" type="number" id="start" name="start" [(ngModel)]="addTicketDetails.start" #startRef="ngModel"
+        class="form-control form-control-lg " placeholder="Starting Distance (km)" min="1" max="100000" required=""/>
+        <div class="error" *ngIf="startRef.invalid && (startRef.dirty || startRef.touched)">
+          <!-- <div *ngIf="startRef.errors?.['required']">Starting Distance Required</div> -->
+          <div *ngIf="startRef.errors?.['min']">Minimum Distance Required</div>
+          <div *ngIf="startRef.errors?.['max']">Distance Limit Exceed</div>
+        </div>
+    </div>
+
+    <div class="form-outline mb-4">
+      <label class="form-label" for="formaddpolicy">Ending Distance</label>
+      <input (input)="checkDistance(addForm)" type="number" id="end" name="end" [(ngModel)]="addTicketDetails.end" #endRef="ngModel" class="form-control form-control-lg"
+        placeholder="Ending Distance (km)" min="1" max="100000" required=""/>
+        <div class="error" *ngIf="(endRef.dirty || endRef.touched)">
+          <!-- <div *ngIf="endRef.errors?.['required']">Ending Distance Required</div> -->
+          <div *ngIf="endRef.errors?.['min']">Minimum Distance Required</div>
+          <div *ngIf="endRef.errors?.['max']">Distance Limit Exceed</div>
+          <div *ngIf="checkFlag">End Distance must be greater than start</div>
+        </div>
+    </div>
+
+    <div class="form-outline mb-4">
+      <label class="form-label" for="formaddpolicy">Price</label>
+      <input type="number" id="price" name="price" [(ngModel)]="addTicketDetails.price" #priceRef="ngModel"
+        class="form-control form-control-lg" placeholder="Price (&#8377;)" min="1" max="100000" required>
+        <div class="error" *ngIf="priceRef.invalid && (priceRef.dirty || priceRef.touched)">
+          <!-- <div *ngIf="priceRef.errors?.['required']">Amount is Required</div> -->
+          <div *ngIf="priceRef.errors?.['min']">Minimum Amount is Required</div>
+          <div *ngIf="priceRef.errors?.['max']">Amount Limit Exceed</div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button [disabled]="addForm.invalid || checkFlag " type="button" class="btn btn-primary" (click)="addTicket()">ADD</button>
+    </div>
+
+  </form>
+</div>

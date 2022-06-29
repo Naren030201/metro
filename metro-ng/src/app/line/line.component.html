@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Line</h1>
+  <div class="col-3">
+    <a  routerLink="/add-line"> <button type="button" class="btn btn-primary">Add Line</button></a>
+  </div>
+  <div class="row">
+      <div class="col-3  mt-3" *ngFor="let line of result">
+          <div class="card">
+              <div class="card-body">
+                {{line.name}}
+                <a  routerLink="/manage-station-in-a-line/{{line.id}}">
+                  <!-- <span class="material-symbols-outlined mx-3">delete</span> -->
+                  <span class="material-symbols-outlined mx-3">visibility</span>
+                </a>
+              </div>
+          </div>
+      </div>
+    </div> 
+</div>

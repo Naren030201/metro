@@ -1,0 +1,57 @@
+<div class="container mt-0 mb-5 mt-5">
+
+    <div class="row d-flex align-items-center justify-content-center">
+
+        <div class="col-md-6">
+
+
+            <div class="card px-5 py-5" style="border: 2px solid rgba(184, 160, 160, 0.25);">
+                <h3 class="  mb-5 d-flex justify-content-center text-warning">SIGN IN</h3>
+                <div class="alert alert-danger  mb-2" *ngIf=" msg!='' ">{{msg}}</div>
+                <div class="alert alert-success  mb-2" *ngIf=" from=='signup' ">You have successfully registered. Try to Login.</div>
+                <div class="alert alert-success  mb-2" *ngIf=" to=='update' ">You have successfully changed your passsword try to Login.</div>
+                <form #loginform="ngForm" (ngSubmit)="loginuser()">
+
+                    <div class="form-input">
+                        <div *ngIf="email.errors && (email.invalid && email.touched)">
+                            <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
+                            <small class="text-danger" *ngIf="email.errors.pattern">Enter a valid Email Id</small>
+                        </div>
+                        <input type="email" class="form-control mb-4" placeholder="Email" name="email" [(ngModel)]="user.emailId" #email="ngModel" [class.is-invalid]="email.invalid && email.touched" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                    </div>
+
+                    <div class="form-input">
+                        <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required field</small>
+                        <input type="password" class="form-control mb-2" placeholder="Password" name="password" [(ngModel)]="user.password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" required>
+
+                    </div>
+
+
+
+
+
+
+
+                    <button type="submit" [disabled]="loginform.form.invalid" class="btn btn-primary mt-4 signup">SIGN IN</button>
+                </form>
+                <div class="text-center mt-4">
+
+                    <span>New Member ? </span>
+                    <a routerLink="/signup" class="text-decoration-none">SignUp</a>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

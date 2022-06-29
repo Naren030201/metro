@@ -1,0 +1,34 @@
+<div class="container mt-0 mb-5 mt-5">
+
+  <div class="row d-flex align-items-center justify-content-center">
+
+    <div class="col-md-6">
+
+
+      <div class="card px-5 py-5" style="border: 2px solid rgba(184, 160, 160, 0.25);">
+        <h3 class="  mb-5 d-flex justify-content-center text-warning">Change Password</h3>
+        <small class=" alert-success">{{msg}}</small>
+        <form #changepass="ngForm" >
+          <div class="form-input">
+            <input type="password" class="form-control mb-4" placeholder="Password" name="password" [(ngModel)]="user.password" #password="ngModel"
+            [class.is-invalid]="password.invalid && password.touched" required>
+          </div>
+
+          <div class="form-input">
+            <small class="text-danger"[class.d-none]="cpass.value== password.value || cpass.untouched"> Password and Confirm Password must be same</small>
+            <input type="password" class="form-control mb-2" placeholder=" Confirm Password" name="cpass" #cpass="ngModel" 
+            (ngModel)="user.password"[class.is-invalid]="cpass.invalid && cpass.touched" required>
+          </div>
+          <button type="button" [disabled]="changepass.form.invalid"class="btn btn-primary mt-4 signup" (click)="pass()" >Confirm</button>
+        </form>
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+</div>

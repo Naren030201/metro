@@ -1,0 +1,19 @@
+<div class="container">
+    <h1>Stations</h1>
+    <div class="col-3">
+      <a  routerLink="/add-station"> <button type="button" class="btn btn-primary">Add Station</button></a>
+    </div>
+    <div class="row">
+        <div class="col-3  mt-3" *ngFor="let station of result">
+            <div class="card">
+                <div class="card-body">
+                  {{station.name}}
+                  <a  routerLink="/modify-station/{{station.id}}">
+                    <!-- <span class="material-symbols-outlined mx-3">delete</span> -->
+                    <span class="material-symbols-outlined mx-3">edit</span>
+                  </a>
+                </div>
+            </div>
+        </div>
+      </div> 
+</div>

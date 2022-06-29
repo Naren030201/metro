@@ -1,0 +1,40 @@
+<div class="container">
+  <H2>Manage Stations in a Line</H2>
+  <div class="row mx-1">
+    <div class="card border-dark" style="width: 18rem">
+      <div class="card-body">
+        <h1>
+          <span class="material-symbols-outlined">train</span>
+          <span class="display-6">{{line.name}} Line</span>
+        </h1>
+      </div>
+    </div>
+    <div class="col-3 mt-3 mx-3 ">
+      <div class="card align-items-center border-dark">
+        <div class="card-body align-items-center">
+          <a class="btn btn-outline-primary" routerLink="/add-station-to-line/{{line.id}}/0/{{sequence}}">Insert End Station</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-3 mt-3" *ngFor="let linestation of linestations">
+      <div class="row justify-content-center">
+        <div
+          class="col-lg-1 d-flex align-items-center justify-content-center mt-2 mb-3">
+          <a routerLink="/add-station-to-line/{{line.id}}/{{linestation.id}}/0">
+            <span class="material-symbols-outlined"> add_circle </span></a>
+        </div>
+        <div class="col-lg-11">
+          <div class="card">
+            <div class="card-body">
+              <div class="card-title h6">{{linestation.sequence+"."}}  {{linestation.station.name}}<a routerLink="/remove-station-to-line/{{line.id}}/{{linestation.id}}/0">
+                <span class="material-symbols-outlined mx-2">delete</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

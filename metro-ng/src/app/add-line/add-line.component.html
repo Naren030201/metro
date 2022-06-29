@@ -1,0 +1,22 @@
+<div class="container">
+    <form #lineForm="ngForm"  (ngSubmit)="onSubmit()">
+        <h2>Add Line</h2>
+        <label for="Addline">New Line Name</label>
+        <input type="text" class="form-control me-2" [(ngModel)]="line.name" name="name" id="name"
+            #lineField="ngModel" minlength="2" maxlength="30" required>
+        <div class="error" *ngIf="lineField.invalid&&(lineField.dirty||lineField.touched)">
+            <div *ngIf="lineField.errors?.['required']">Line name is required.</div>
+            <div *ngIf="lineField.errors?.['minlength']">Line name must be atleast 2 characters.</div>
+            <div *ngIf="lineField.errors?.['maxlength']">line name cannot exceed 30 characters.</div>
+
+        </div>
+        <div class="mt-3">
+            <button type="submit" class="btn btn-primary mb-3" [disabled]="!lineForm.valid"
+                value="Save">Add</button>
+        </div>
+    </form>
+</div>
+
+    
+    
+    

@@ -4,8 +4,9 @@ import { User } from "./user";
 export interface Ticket{
     id:number,
     user:User,
-    start:Station,
-    end: Station,
+    from:Station,
+    to: Station,
     price:number,
-    travel:string
+    date:string
+    no_of_tickets:number;
 }

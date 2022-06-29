@@ -1,0 +1,19 @@
+.station-item:hover{
+    cursor: pointer;
+    background-color: #056ace;
+    color: aliceblue;
+
+}
+.display-6{
+    color: #056ace;
+}
+.list-group-item {
+    cursor: pointer;
+}
+
+.list-group-item:hover {
+    cursor: pointer;
+    background-color: lightgrey;
+    font-weight: bold;
+}
+
